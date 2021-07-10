@@ -1,0 +1,11 @@
+.alive {
+  border: 5px solid var(--alive);
+}
+
+.unknown {
+  border: 5px solid var(--unknown);
+}
+
+.dead {
+  border: 5px solid var(--dead);
+}

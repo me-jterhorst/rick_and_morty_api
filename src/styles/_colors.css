@@ -1,3 +1,7 @@
 :root {
-  /* Define your variable colors here */
+  --primary: rgb(160, 217, 244);
+  --secondary: rgb(217, 231, 74);
+  --alive: rgb(55, 188, 61);
+  --dead: rgb(228, 43, 51);
+  --unknown: rgb(219, 212, 196);
 }
