@@ -9,7 +9,9 @@
   </head>
   <body>
     <header>
-      <div class="logo"><img src="src/img/logo.jpg" alt="Logo" /></div>
+      <div class="logo">
+        <img src="src/img/logo.jpg" alt="Logo" />
+      </div>
       <form class="user__selection">
         <select name="" id="">
           <option value="">All</option>
@@ -17,14 +19,38 @@
           <option value="">Unknown</option>
           <option value="">Dead</option>
         </select>
-        <input class="name" id="name" name="name" type="text" />
-        <button type="submit"></button>
+        <input
+          class="name"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Type in a name"
+          autocomplete="off"
+        />
+        <button type="submit">Go</button>
       </form>
     </header>
     <main class="content">
       <div class="card">
         <div class="card__img">
-          <img src="" alt="Person" srcset="" />
+          <img src="src/img/logo.jpg" alt="Person" srcset="" />
+        </div>
+        <div class="card__txt">
+          <p>Lorem, ipsum dolor.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__img">
+          <img src="src/img/logo.jpg" alt="Person" srcset="" />
+        </div>
+        <div class="card__txt">
+          <p>Lorem, ipsum dolor.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__img">
+          <img src="src/img/logo.jpg" alt="Person" srcset="" />
         </div>
         <div class="card__txt">
           <p>Lorem, ipsum dolor.</p>
@@ -32,7 +58,7 @@
       </div>
     </main>
     <footer>
-      <p>You son of a b*tch, I'm in</p>
+      <p>You son of a b*tch, I'm in 👉👉</p>
     </footer>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
