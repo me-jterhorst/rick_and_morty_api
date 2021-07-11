@@ -1,5 +1,13 @@
-/* Create Card */
+const url = `https://rickandmortyapi.com/api/character`;
 
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    const api_data = [...data.results];
+    console.log(api_data);
+  });
+
+/* Create Card */
 function createCard(obj) {
   const main = document.querySelector("main");
 
