@@ -9,8 +9,31 @@
   </head>
   <body>
     <header>
-      <h1>Hello World</h1>
+      <div class="logo">
+        <img src="src/img/logo.jpg" alt="Logo" />
+      </div>
+      <form class="user__selection">
+        <select name="" id="">
+          <option>All</option>
+          <option>Alive</option>
+          <option>Unknown</option>
+          <option>Dead</option>
+        </select>
+        <input
+          class="name"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Type in a name"
+          autocomplete="off"
+        />
+        <button type="submit">Go</button>
+      </form>
     </header>
+    <main class="content"></main>
+    <footer>
+      <p>You son of a b*tch, I'm in 👉👉</p>
+    </footer>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
