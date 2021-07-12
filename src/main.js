@@ -72,10 +72,12 @@ function filterCard(data, selection) {
   });
 }
 function inputCard(data, input) {
-  const filtered_array = data.filter(
-    (person) => person.name.toLowerCase() === input.toLowerCase()
-  );
+  const filtered_array = data.filter((person) => {
+    let str = person.name.toLowerCase();
+    let pattern = new RegExp(input.toLowerCase());
+    return pattern.test(str);
+  });
   filtered_array.forEach((filtered_character) => {
-    return createCard(filtered_character, "person");
+    return createCard(filtered_character, null);
   });
 }
