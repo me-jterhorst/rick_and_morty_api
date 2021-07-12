@@ -8,21 +8,24 @@ form.addEventListener("submit", (event) => {
   main_element.textContent = "";
 
   const selection = document.querySelector("select").value.toLowerCase();
-  // const input = document.querySelector("input");
+  const input = document.querySelector("input").value;
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       const api_data = [...data.results];
 
-      if (selection === "all") {
-        api_data.forEach((character) => {
-          createCard(character, "all");
-        });
+      if (input) {
+        inputCard(api_data, input);
       } else {
-        filterCard(api_data, selection);
+        if (selection === "all") {
+          api_data.forEach((character) => {
+            createCard(character, "all");
+          });
+        } else {
+          filterCard(api_data, selection);
+        }
       }
-
       form.reset();
     });
 });
@@ -66,5 +69,13 @@ function filterCard(data, selection) {
   );
   filtered_array.forEach((filtered_character) => {
     return createCard(filtered_character, selection);
+  });
+}
+function inputCard(data, input) {
+  const filtered_array = data.filter(
+    (person) => person.name.toLowerCase() === input.toLowerCase()
+  );
+  filtered_array.forEach((filtered_character) => {
+    return createCard(filtered_character, "person");
   });
 }
