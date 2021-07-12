@@ -1,19 +1,39 @@
 const url = `https://rickandmortyapi.com/api/character`;
+const form = document.querySelector("form");
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    const api_data = [...data.results];
-    console.log(api_data);
-  });
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // RESET MAIN
+  const main_element = document.querySelector("main");
+  main_element.textContent = "";
+
+  const selection = document.querySelector("select").value.toLowerCase();
+  // const input = document.querySelector("input");
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const api_data = [...data.results];
+
+      if (selection === "all") {
+        api_data.forEach((character) => {
+          createCard(character, "all");
+        });
+      } else {
+        filterCard(api_data, selection);
+      }
+
+      form.reset();
+    });
+});
 
 /* Create Card */
-function createCard(obj) {
+function createCard(obj, status) {
   const main = document.querySelector("main");
-
   // OUTER CARD
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", status);
+  card.id = obj.id;
 
   //CARD IMG
   const card_img = document.createElement("div");
@@ -21,8 +41,8 @@ function createCard(obj) {
 
   // IMG
   const img = document.createElement("img");
-  img.src = obj.link;
-  img.src = obj.name;
+  img.src = obj.image;
+  img.alt = obj.name;
 
   // CARD TXT
   const card_txt = document.createElement("div");
@@ -38,4 +58,13 @@ function createCard(obj) {
   card.append(card_img);
   card.append(card_txt);
   main.append(card);
+}
+
+function filterCard(data, selection) {
+  const filtered_array = data.filter(
+    (person) => person.status.toLowerCase() === selection
+  );
+  filtered_array.forEach((filtered_character) => {
+    return createCard(filtered_character, selection);
+  });
 }
